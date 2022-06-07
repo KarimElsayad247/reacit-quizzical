@@ -1,0 +1,91 @@
+:root {
+    --normal-font-size: 25px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    font-family: Karla, Arial, Helvetica, sans-serif;
+    background-color: #F5F7FB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-screen > h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 52px;
+    text-align: center;
+    color: #293264;
+}
+
+.start-screen > h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--normal-font-size);
+    text-align: center;
+    color: #293264;
+    margin-top: 10px;
+}
+
+.start-screen > button,
+.game-screen > .check-button {
+    background: #4D5B9E;
+    color: white;
+    font-size: var(--normal-font-size);
+    border: none;
+    border-radius: 15px;
+    margin-top: 30px;
+    padding: 20px 70px;
+    cursor: pointer;
+}
+
+.game-screen {
+    max-width: 700px;
+    padding: 20px;
+}
+
+.question {
+    padding: 20px 0;
+    border-bottom: 1px solid #DBDEF0;
+}
+
+.question-text {
+    font-size: 20px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    color: #293264;
+}
+
+.button-group {
+    margin-top: 12px;
+}
+
+.choice-button {
+    color: #293264;
+    background: #F5F7FB;
+    border: 1.3px solid #4D5B9E;
+    border-radius: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px 16px;
+    min-width: 100px;
+}
