@@ -88,4 +88,14 @@ main {
     margin: 5px;
     padding: 5px 16px;
     min-width: 100px;
+    cursor: pointer;
+    transition: all .1s ease-in
+}
+
+.choice-button:hover {
+    background: #e1e4f494;
+}
+
+.choice-button.chosen {
+    background-color: #D6DBF5;
 }
