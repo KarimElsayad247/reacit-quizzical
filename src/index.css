@@ -42,7 +42,7 @@ main {
 }
 
 .start-screen > button,
-.game-screen > .check-button {
+.game-screen .check-button {
     background: #4D5B9E;
     color: white;
     font-size: var(--normal-font-size);
@@ -98,4 +98,20 @@ main {
 
 .choice-button.chosen {
     background-color: #D6DBF5;
+}
+
+.choice-button.wrong {
+    color: #29326480;
+    border: 1.3px solid #4D5B9E80;
+}
+
+.choice-button.chosen.wrong {
+    background: #f8bcbc80;
+    color: #29326480;
+    border: 1.3px solid #4D5B9E00;
+}
+
+.choice-button.correct {
+    background: #94D7A2;
+    border: 1.3px solid #4D5B9E00;
 }
