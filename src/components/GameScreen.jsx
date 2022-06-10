@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import data from "../data";
 import Question from "./Question";
@@ -87,18 +87,28 @@ export default function GameScreen() {
         )
     ); 
 
+    function restartGame() {
+        fetch("https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple")
+        .then(res => res.json())
+        .then(data => setQuestions(createQuestions(data.results)))
+        .then(setChecked(false))
+        .catch(() => {
+            restartGame();
+        });
+    }
+
     function check() {
         if (!checked) {
             setChecked(true);
         }
         else { // restart game
-            setChecked(false);
-            // fetch("https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple")
-            // .then(res => res.json())
-            // .then(data => setQuestions(data["results"]))
-            // .then(setCorrectlyChosen(Array(5).fill(false)));
+            restartGame();
         }
     }
+
+    useEffect(() => {
+        restartGame();
+    }, []);
 
     // Toggle the clicked choice, keeping choices in other questions 
     // unaffected.
