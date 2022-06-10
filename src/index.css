@@ -23,33 +23,33 @@ main {
     justify-content: center;
 }
 
+.start-screen {
+    height: 100vh;
+    gap: 1.2rem;
+}
+
 .start-screen > h1 {
-    font-style: normal;
     font-weight: 700;
     font-size: 52px;
-    text-align: center;
     color: #293264;
 }
 
 .start-screen > h2 {
     font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: var(--normal-font-size);
     text-align: center;
     color: #293264;
-    margin-top: 10px;
 }
 
 .start-screen > button,
 .game-screen .check-button {
     background: #4D5B9E;
     color: white;
-    font-size: var(--normal-font-size);
+    font-size: 1.2em;
     border: none;
     border-radius: 15px;
-    margin-top: 30px;
-    padding: 20px 70px;
+    padding: 1rem 3rem;
     cursor: pointer;
 }
 
@@ -66,7 +66,6 @@ main {
 .question-text {
     font-size: 20px;
     font-family: 'Karla';
-    font-style: normal;
     font-weight: 700;
     color: #293264;
 }
@@ -114,4 +113,19 @@ main {
 .choice-button.correct {
     background: #94D7A2;
     border: 1.3px solid #4D5B9E00;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+}
+
+.bottom > p {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 1.2em;
+    text-align: center;
+    color: #293264;
 }
