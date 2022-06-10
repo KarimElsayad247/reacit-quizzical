@@ -75,10 +75,6 @@ export default function GameScreen() {
 
     // Contains the objects for each question. 
     const [questions, setQuestions] = useState(createQuestions(data.results));
-    
-    // An array the contains whethe a paricular answer is correctly chosen.
-    // At start, no answer is chosen, so it's all false.
-    const [correctlyChosen, setCorrectlyChosen] = useState(Array(5).fill(false));
 
     const questionElements = questions.map((q, i) => (
             <Question  
@@ -86,7 +82,7 @@ export default function GameScreen() {
                 {...q} 
                 checked={checked} 
                 id={i}
-                toggleCorrectChoice={toggleCorrectChoice}
+                toggleChoice={toggleChoice}
             />
         )
     ); 
@@ -104,13 +100,31 @@ export default function GameScreen() {
         }
     }
 
-    // Question components 
-    function toggleCorrectChoice(id, newValue) {
-        setCorrectlyChosen(prevChosen => prevChosen.map((choice, i) => i == id ? newValue : choice))
+    // Toggle the clicked choice, keeping choices in other questions 
+    // unaffected.
+    function toggleChoice(questionId, choiceId) {
+        setQuestions(prevQuestions => prevQuestions.map((question, i) => {
+            if (questionId != i) {
+                return question;
+            }
+            else { // clicked choice belongs to this question
+                // toggle the clicked choice, and deselect all others
+                return {
+                    ...question,
+                    choices: question.choices.map((choice, j) =>  ({
+                        ...choice,
+                        isChosen: choiceId === j ? !choice.isChosen : false
+                    }))
+                };
+            }
+        }));
     }
 
     function numCorrect() {
-        return correctlyChosen.filter(isChosen => isChosen === true).length
+        const correctQuestions = questions.filter(question => {
+            return question.choices.some(choice => choice.isChosen && choice.isCorrect);
+        });
+        return correctQuestions.length
     }
 
     return (

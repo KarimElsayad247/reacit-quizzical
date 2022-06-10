@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { nanoid } from "nanoid";
 
 export default function Question(props) {
@@ -26,12 +26,6 @@ export default function Question(props) {
                 </button>)
     });
 
-    // if (props.checked) {
-    //     if (choicesState.some(choice => choice.isChosen && choice.isCorrect)) {
-    //         props.incrementCorrectAnswers();
-    //     }
-    // }
-
     /**
      * Toggle the clicked button. It it's not the selected button,
      * make it the only selected button.
@@ -41,18 +35,12 @@ export default function Question(props) {
     function toggle(id) {
         // Toggle the clicked button, and clear all other buttons, so it's only
         // one button that has state of "chosen"
-        // if (!props.checked) {
-        //     setChoicesState(prevChoices => prevChoices.map((prevChoiceState, i) => ({
-        //         ...prevChoiceState,
-        //         isChosen: i == id ? !prevChoiceState.isChosen : ""
-        //     })));
-        // }
+        if (!props.checked) {
+            props.toggleChoice(props.id, id);
+            // const isCorrectlyChosen = props.choices.some(choice => choice.isChosen && choice.isCorrect);
+            // props.toggleCorrectChoice(props.id, isCorrectlyChosen);
+        }
     }
-
-    // useEffect(() => {
-    //     const isCorrectlyChosen = choicesState.some(choice => choice.isChosen && choice.isCorrect);
-    //     props.toggleCorrectChoice(props.id, isCorrectlyChosen);
-    // }, [choicesState]);
 
     return (
         <section className="question">
