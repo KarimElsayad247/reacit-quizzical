@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# IMPORTANT
+# Make sure to set the base property in vite.config.js
+
 # abort on errors
 set -e
 
@@ -15,6 +18,6 @@ git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:KarimElsayad247/reacit-quizzical.git main:gh-pages
+git push -f git@github.com:KarimElsayad247/react-quizzical.git main:gh-pages
 
 cd -
